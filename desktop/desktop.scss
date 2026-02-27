@@ -145,27 +145,30 @@
 }
 
 // ==========================================
-// 追加：最近回复 - 用户名样式
+// 追加：最近回复 - 紧凑型用户名与摘要样式
 // ==========================================
-.recent-replies--user-info {
-  margin-bottom: 0.25em;
+.recent-replies--content-wrapper {
+  // 1. 整体容器：控制与下方标题的间距，设定一致的行高
+  margin-bottom: 0.35em;
+  line-height: 1.4;
+  font-size: 0.85em; 
+  word-break: break-word; // 防御超长英文/链接撑破边栏
 
+  // 2. 用户名：使用高亮强调色（例如原主题的 tertiary 颜色）
   .recent-replies--username {
-    font-weight: bold;
-    font-size: 0.9em;
-    color: var(--primary);
+    font-weight: 700; // 加粗
+    color: var(--tertiary, #00D4FF); // 强调色，不同于普通文本
+    margin-right: 2px; // 给冒号后面留一点点呼吸空间
     transition: color 0.2s ease;
     
     &:hover {
-      color: var(--tertiary); // 鼠标悬停时使用主题第三色（通常是链接激活色）
+      color: var(--quaternary, #FF6B35); // 悬停时的互动反馈
+      text-decoration: underline;
     }
   }
-}
 
-// 可选优化：因为加了用户名，原有的摘要(excerpt)可能会显得有些挤
-// 我们可以稍微下调一点点摘要的字体大小和下边距
-.recent-replies--excerpt {
-  font-size: 0.85em;
-  margin-bottom: 0.35em;
-  line-height: 1.4;
+  // 3. 摘要内容：使用次要文字颜色，与用户名形成鲜明对比
+  .recent-replies--excerpt {
+    color: var(--primary-medium); // 稍暗的颜色
+  }
 }
