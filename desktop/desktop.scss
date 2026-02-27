@@ -143,3 +143,25 @@
     margin-bottom: 0.5em;
   }
 }
+
+// 最近回复 - 用户名样式
+.recent-replies--user-info {
+  margin-bottom: 0.25em;
+
+  .recent-replies--username {
+    font-weight: bold;
+    font-size: 0.9em;
+    color: var(--primary);
+    
+    &:hover {
+      color: var(--tertiary);
+    }
+  }
+}
+
+// 稍微调小一下摘要的字体和边距，避免侧边栏显得太拥挤（可选）
+.recent-replies--excerpt {
+  font-size: 0.9em;
+  margin-bottom: 0.25em;
+  color: var(--primary-medium);
+}
