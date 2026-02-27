@@ -145,30 +145,37 @@
 }
 
 // ==========================================
-// 追加：最近回复 - 紧凑型用户名与摘要样式
+// 终极修复：最近回复 - 紧凑型用户名与摘要样式
 // ==========================================
 .recent-replies--content-wrapper {
-  // 1. 整体容器：控制与下方标题的间距，设定一致的行高
   margin-bottom: 0.35em;
   line-height: 1.4;
   font-size: 0.85em; 
-  word-break: break-word; // 防御超长英文/链接撑破边栏
+  word-break: break-word; 
 
-  // 2. 用户名：使用高亮强调色（例如原主题的 tertiary 颜色）
+  // 将整个“用户名+回复”作为一个段落，最多显示 3 行，多余的用 ... 省略
+  display: -webkit-box;
+  -webkit-line-clamp: 3; 
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+
+  // 1. 强制用户名同行显示
   .recent-replies--username {
-    font-weight: 700; // 加粗
-    color: var(--tertiary, #00D4FF); // 强调色，不同于普通文本
-    margin-right: 2px; // 给冒号后面留一点点呼吸空间
+    display: inline !important; // 【核心修复】强制剥夺换行权
+    font-weight: 700;
+    color: var(--tertiary, #00D4FF);
+    margin-right: 2px;
     transition: color 0.2s ease;
     
     &:hover {
-      color: var(--quaternary, #FF6B35); // 悬停时的互动反馈
+      color: var(--quaternary, #FF6B35);
       text-decoration: underline;
     }
   }
 
-  // 3. 摘要内容：使用次要文字颜色，与用户名形成鲜明对比
+  // 2. 强制回复内容同行显示
   .recent-replies--excerpt {
-    color: var(--primary-medium); // 稍暗的颜色
+    display: inline !important; // 【核心修复】不管它是div还是span，都必须跟在后面
+    color: var(--primary-medium);
   }
 }
