@@ -61,17 +61,17 @@ export default class RecentReplies extends Component {
           </div>
           <div class="recent-replies--col">
             
-            {{!-- ✨ 新增：用户名显示区块 --}}
-            <div class="recent-replies--user-info">
+            {{!-- ✨ 修改：紧凑型“用户名：回复”行内排版 --}}
+            <div class="recent-replies--content-wrapper">
               <a href="/u/{{reply.username}}" data-user-card={{reply.username}} class="recent-replies--username">
-                {{reply.username}}
+                {{reply.username}}：
               </a>
+              <span class="recent-replies--excerpt">
+                {{reply.excerpt}}
+              </span>
             </div>
             {{!-- ========================= --}}
 
-            <div class="recent-replies--excerpt">
-              {{reply.excerpt}}
-            </div>
             <div class="recent-replies--topic-title">
               <a
                 class="recent-replies--topic-link"
