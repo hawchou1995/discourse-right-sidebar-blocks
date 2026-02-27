@@ -144,7 +144,9 @@
   }
 }
 
-// 最近回复 - 用户名样式
+// ==========================================
+// 追加：最近回复 - 用户名样式
+// ==========================================
 .recent-replies--user-info {
   margin-bottom: 0.25em;
 
@@ -152,16 +154,18 @@
     font-weight: bold;
     font-size: 0.9em;
     color: var(--primary);
+    transition: color 0.2s ease;
     
     &:hover {
-      color: var(--tertiary);
+      color: var(--tertiary); // 鼠标悬停时使用主题第三色（通常是链接激活色）
     }
   }
 }
 
-// 稍微调小一下摘要的字体和边距，避免侧边栏显得太拥挤（可选）
+// 可选优化：因为加了用户名，原有的摘要(excerpt)可能会显得有些挤
+// 我们可以稍微下调一点点摘要的字体大小和下边距
 .recent-replies--excerpt {
-  font-size: 0.9em;
-  margin-bottom: 0.25em;
-  color: var(--primary-medium);
+  font-size: 0.85em;
+  margin-bottom: 0.35em;
+  line-height: 1.4;
 }
