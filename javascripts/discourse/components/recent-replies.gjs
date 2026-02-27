@@ -48,7 +48,7 @@ export default class RecentReplies extends Component {
     this.replies = null;
   }
 
-  <template>
+<template>
     <h3 class="recent-replies--heading">
       {{i18n (themePrefix "recent_replies.heading")}}
     </h3>
@@ -60,6 +60,15 @@ export default class RecentReplies extends Component {
             {{avatar reply imageSize="small"}}
           </div>
           <div class="recent-replies--col">
+            
+            {{!-- ✨ 新增：用户名显示区块 --}}
+            <div class="recent-replies--user-info">
+              <a href="/u/{{reply.username}}" data-user-card={{reply.username}} class="recent-replies--username">
+                {{reply.username}}
+              </a>
+            </div>
+            {{!-- ========================= --}}
+
             <div class="recent-replies--excerpt">
               {{reply.excerpt}}
             </div>
